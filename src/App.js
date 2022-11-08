@@ -4,7 +4,7 @@ import { useState } from 'react'
 function App() {
   let daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
   let day = daylist[new Date().getDay()]
-  const [toDos, setToDos] = useState([])
+  let [toDos, setToDos] = useState([])
   const [toDo, setToDo] = useState('')
   console.log(toDos);
   return (
@@ -41,14 +41,12 @@ function App() {
               <div className="right">
                 <i onClick={(e) => {
 
-                  console.log(data.id);
-                  setToDos(toDos.filter(getdata => {
-                    if (getdata.id !== data.id) {
-                      console.log(toDos);
 
-                    }
-                    return getdata
+
+                  setToDos(toDos.filter((list, index) => {
+                    return list.id !== data.id
                   }))
+
                 }} className="fas fa-times"></i>
               </div>
             </div>)
