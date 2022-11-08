@@ -4,9 +4,9 @@ import { useState } from 'react'
 function App() {
   let daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
   let day = daylist[new Date().getDay()]
-  let [toDos, setToDos] = useState([])
+  const [toDos, setToDos] = useState([])
   const [toDo, setToDo] = useState('')
-  console.log(toDos);
+
   return (
 
     <div className="app">
@@ -40,10 +40,8 @@ function App() {
               </div>
               <div className="right">
                 <i onClick={(e) => {
-
-
-
-                  setToDos(toDos.filter((list, index) => {
+                  //delecting todo
+                  setToDos(toDos.filter((list) => {
                     return list.id !== data.id
                   }))
 
